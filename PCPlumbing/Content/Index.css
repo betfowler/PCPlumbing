@@ -1,0 +1,48 @@
+﻿#welcomeMessage h4 {
+    color: #2e3192;
+}
+
+#int-menu img{
+    width: 90%;
+}
+
+.desc {
+    border: 5px solid #408080;
+    text-align: center;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid white;
+    margin: auto;
+}
+
+#plumbArr .arrow-up{
+    border-bottom: 50px solid #408080;
+}
+
+#menuLabel {
+    text-align: center;
+    color: #2e3192;
+    font-weight: bold;
+}
+
+#text{
+    font-size: 16px;
+    text-align: center;
+}
+
+#text ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 20px;
+    
+}
+#text ul li:before{
+    content: '✓';
+}

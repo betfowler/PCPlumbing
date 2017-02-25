@@ -1,0 +1,29 @@
+﻿#pageIcon img {
+    display: block;
+    width: 80%;
+}
+
+#pageTitle {
+    color: #2e3192;
+    font-size: 50px;
+}
+
+#info{
+    font-size: 16px; 
+}
+
+.contactBox {
+    width: 90%;
+    margin: auto;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    text-align: center;
+    color: #404040;
+    border-radius: 10px;
+
+}
+
+.contactBox h2{
+    font-weight: bold;
+    color: #333;
+}

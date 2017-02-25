@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" id="break"></div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="contactBox">
+            <h3>@RenderSection("contactDesc", false)</h3>
+            <h2>01460 68752</h2>
+            <h2>07968 210 302</h2>
+            <h4>paul.pcplumbing@me.com</h4>
+        </div>
+        <div class="row" id="break"></div>
+        <div id="socialMedia">
+            <a href="https://www.facebook.com/PC-Plumbing-829284977149332/"><i class="fa fa-facebook-square" aria-hidden="true" id="facebook"></i></a>
+            <a href="https://twitter.com/pcplumbiop"><i class="fa fa-twitter-square" aria-hidden="true" id="twitter"></i></a>
+            <a href="https://plus.google.com/104697928990093673440"><i class="fa fa-google-plus-square" aria-hidden="true" id="google"></i></a>
+        </div>
+    </div>
+    <div class="col-md-8" id="info">
+        <div class="row">
+            <div class="col-md-2" id="pageIcon">@RenderSection("pageIcon", false)</div>
+            <div class="col-md-10" id="pageTitle">
+                @RenderSection("pageTitle", false)
+            </div>
+        </div>
+        <div class="row">
+            <h2>@RenderSection("PageHeading1",false)</h2>
+        </div>
+        <div class="row">
+            @RenderSection("Section1", false)
+        </div>
+        <div class="row">
+            <h2>@RenderSection("PageHeading2", false)</h2>
+        </div>
+        <div class="row">
+            @RenderSection("Section2", false)
+        </div>
+        <div class="row">
+            <h2>@RenderSection("PageHeading3", false)</h2>
+        </div>
+        <div class="row">
+            @RenderSection("Section3", false)
+        </div>
+    </div>
+</div>

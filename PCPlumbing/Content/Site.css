@@ -1,0 +1,148 @@
+﻿body {
+    padding-top: 50px;
+    height: 100%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 100%;
+}
+
+.main {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 136px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse {
+    background-color: #404040;
+    border-color: #333333;
+}
+
+.menubar {
+    background-color: #cccccc;
+    height: 200px;
+    border-bottom: 5px solid #2e3192;
+}
+/*sm*/
+@media (min-width: 768px){
+    .view{
+        max-width: 750px;
+    }
+}
+
+/*md*/
+@media (min-width: 992px){
+    .view {
+        max-width: 970px;
+    }
+}
+
+/*lrg*/
+@media (min-width: 1200px){
+    .view {
+        max-width: 1170px;
+    }
+}
+
+.view {
+    margin: auto;
+}
+
+.menubar img{
+    display: block;
+    margin: auto;
+    height: 190px;
+}
+.contactDets{
+    color: #404040;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    text-align: right;
+}
+
+.contactDets h4{
+    margin: 5px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+#break {
+    height: 20px;
+}
+
+#smlbreak {
+    height: 5px;
+}
+
+.left {
+    float: left;
+    text-align: left;
+}
+.right {
+    float: right;
+    text-align: right;
+}
+#contact {
+    font-size: 16px;
+    font-weight: bold;
+}
+#contact i {
+    font-size: 12px;
+}
+#contact ul {
+    list-style: none;
+}
+
+footer {
+    position: relative;
+    margin-top: -116px;
+    height: 116px;
+    clear: both;
+    background-color: #cccccc;
+    border-top: 5px solid #2e3192;
+}
+
+.subFooter {
+    width: 100%;
+    padding: 1rem;
+    background-color: #404040;
+    color: white;
+    font-size: 14px;
+}
+
+#socialMedia {
+    font-size: 30px;
+    text-align: center;
+}
+#socialMedia a {
+    color: #333;
+}
+
+#address {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
