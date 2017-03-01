@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PCPlumbing.Models.Images>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3" id="galleryCol">
+            <div class="gallery">
+                <div class="row">
+                    <img src="..@item.Image" />
+                </div>
+                <div class="row">
+                    <h4>@Html.DisplayFor(modelItem => item.ImageName)</h4>
+                </div>
+            </div>
+        </div>
+    }
+</div>
