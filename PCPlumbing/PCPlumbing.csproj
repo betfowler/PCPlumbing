@@ -230,6 +230,7 @@
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\oftec-1.png" />
     <Content Include="Content\Images\PCPlumbingLogo.png" />
+    <Content Include="Content\Images\Photos.png" />
     <Content Include="Content\Images\Plumbing.png" />
     <Content Include="Content\Images\PlumbingAct.png" />
     <Content Include="Content\Images\Renewable.png" />

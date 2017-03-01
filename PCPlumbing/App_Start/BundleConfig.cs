@@ -28,6 +28,7 @@ namespace PCPlumbing
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
+                      "~/Content/Info.css",
                       "~/Content/Index.css",
                       "~/Content/Site.css"
 

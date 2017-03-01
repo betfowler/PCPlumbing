@@ -1,26 +1,50 @@
 ﻿@model IEnumerable<PCPlumbing.Models.Images>
-
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InfoLayout.cshtml";
+    ViewBag.Title = "Gallery";
 }
 
-<h2>Index</h2>
+@section ContactDesc{
+    Need an experienced plumber in Somerset?  Call PC Plumbing on
+}
+@section pageTitle{
+    Our Gallery
+}
+@section pageIcon {
+    <img src="../Content/Images/Photos.png" />
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="row">
+@section pageHeading1{
+    Previous plumbing and heating projects
+}
+
+@section section1{
+    <p>
+        Take a look at some of our preivous plumbing and heating projects that we have carried out in Somerset.
+    </p>
+}
+
+@section section2{
+    <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-md-3" id="galleryCol">
             <div class="gallery">
-                <div class="row">
-                    <img src="..@item.Image" />
+                <div class="row" id="galleryImg">
+                    <a class="grouped_elements" rel="group1" href="..@item.Image">
+                        <img class="object-fit_cover" src="..@item.Image" alt=""/>
+                    </a>
                 </div>
-                <div class="row">
-                    <h4>@Html.DisplayFor(modelItem => item.ImageName)</h4>
+                <div class="row" id="galleryTitle">
+                    <h5>@Html.DisplayFor(modelItem => item.ImageName)</h5>
                 </div>
             </div>
         </div>
     }
 </div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+

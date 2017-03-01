@@ -146,3 +146,8 @@ footer {
     text-align: center;
     padding-top: 10px;
 }
+
+#imgCol img{
+    display: block;
+    width: 90%;
+}
