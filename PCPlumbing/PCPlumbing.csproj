@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201703021739294_RemoveAccount.Designer.cs">
       <DependentUpon>201703021739294_RemoveAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703021759072_RemoveAccount1.cs" />
+    <Compile Include="Migrations\201703021759072_RemoveAccount1.Designer.cs">
+      <DependentUpon>201703021759072_RemoveAccount1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\AdminModel.cs" />
@@ -185,6 +189,7 @@
     <Compile Include="Models\PCPlumbingContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Hashing.cs" />
+    <Compile Include="Security\SessionPersister.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +289,7 @@
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703021739294_RemoveAccount.resx">
       <DependentUpon>201703021739294_RemoveAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703021759072_RemoveAccount1.resx">
+      <DependentUpon>201703021759072_RemoveAccount1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

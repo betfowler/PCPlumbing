@@ -12,6 +12,7 @@ namespace PCPlumbing.Models
         public int AdminID { get; set; }
         public string Username { get; set; }
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
     }
 }

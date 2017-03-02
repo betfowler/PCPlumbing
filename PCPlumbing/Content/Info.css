@@ -135,3 +135,7 @@
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+#remove img{
+    height: 125px;
+}

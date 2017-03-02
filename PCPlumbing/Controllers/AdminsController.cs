@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using PCPlumbing.Models;
 using PCPlumbing.ViewModels;
 using Microsoft.AspNet.Identity;
+using PCPlumbing.Security;
 
 namespace PCPlumbing.Controllers
 {
@@ -16,18 +17,26 @@ namespace PCPlumbing.Controllers
     {
         private PCPlumbingContext db = new PCPlumbingContext();
 
+        [AllowAnonymous]
         // GET: Admins
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
 
 
+        [Authorize]
         // GET: Admins/Create
         public ActionResult Create()
         {
-            return View();
+            if (SessionPersister.Username != null)
+                return View();
+            return RedirectToAction("AccessDenied", "Admins");
         }
 
         // POST: Admins/Create
@@ -39,6 +48,7 @@ namespace PCPlumbing.Controllers
         {
             if (ModelState.IsValid)
             {
+                admin.Password = Hashing.ComputeHash(admin.Password);
                 db.Admins.Add(admin);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -55,12 +65,14 @@ namespace PCPlumbing.Controllers
                 ViewBag.Error = "Log in details invalid";
                 return View("Index");
             }
-            return View("~/Views/Images/Create.cshtml");
+            SessionPersister.Username = avm.Admin.Username;
+            return RedirectToAction("Create","Images");
         }
 
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Logout()
         {
+            SessionPersister.Username = string.Empty;
             return RedirectToAction("Index", "Home");
         }
 
