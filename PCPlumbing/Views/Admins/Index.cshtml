@@ -1,0 +1,46 @@
+﻿@model PCPlumbing.ViewModels.AdminViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@{ 
+    if(ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.Error
+        </div>
+    }
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+            {
+                <h4>Please log in here</h4>
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Admin.Username, new {@class = "col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Admin.Username, new { @class = "form-control"})
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Admin.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Admin.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+        </section>
+    </div>
+</div>

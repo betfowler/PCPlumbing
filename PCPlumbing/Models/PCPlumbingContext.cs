@@ -20,5 +20,7 @@ namespace PCPlumbing.Models
         }
 
         public System.Data.Entity.DbSet<PCPlumbing.Models.Images> Images { get; set; }
+
+        public System.Data.Entity.DbSet<PCPlumbing.Models.Admin> Admins { get; set; }
     }
 }
