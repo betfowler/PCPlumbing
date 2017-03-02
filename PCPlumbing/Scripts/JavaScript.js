@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
+
     var winHeight = $(window).height() - 235;
     $("body").css("height", winHeight);
+
+    $("#galleryImg img").mouseover(function () {
+        $(this).css("cursor", "pointer");
+    })
 
     $(".row .col-md-2 img").mouseover(function () {
         //plumbing
@@ -97,17 +102,5 @@
     $("#socialMedia #google").mouseout(function () {
         $(this).css("color", "#333")
     })
-
-
-    /* Apply fancybox to multiple items */
-
-    $("a.grouped_elements").fancybox({
-        'transitionIn': 'elastic',
-        'transitionOut': 'elastic',
-        'speedIn': 600,
-        'speedOut': 200,
-        'overlayShow': false
-    });
-
 
 })

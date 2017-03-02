@@ -26,25 +26,48 @@
 
 @section section2{
     <div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-3" id="galleryCol">
-            <div class="gallery">
-                <div class="row" id="galleryImg">
-                    <a class="grouped_elements" rel="group1" href="..@item.Image">
-                        <img class="object-fit_cover" src="..@item.Image" alt=""/>
-                    </a>
-                </div>
-                <div class="row" id="galleryTitle">
-                    <h5>@Html.DisplayFor(modelItem => item.ImageName)</h5>
+        @{
+            var counter = 0;
+        }
+
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3" id="galleryCol">
+                <div class="gallery">
+                    <div class="row" id="galleryImg">
+                        @{
+                            counter = counter + 1;
+                            var test = Model.Count();
+                        }
+                        <img id="@counter" onclick="openModal('@item.Image', '@item.ImageName', @counter, @test)" class="hover-shadow" src="..@item.Image" alt="" />
+                    </div>
+                    <div class="row" id="galleryTitle">
+                        <h5>@Html.DisplayFor(modelItem => item.ImageName)</h5>
+                    </div>
                 </div>
             </div>
+        }
+    </div>
+    <p>
+
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <div id="galleryModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div id="mySlides">
+                <img id="largeImg" class="object-fit: contain" />
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094</a>
+            <a class="next" onclick="plusSlides(1)">&#10095</a>
+
+            <div class="caption-container">
+                <h3 id="caption"></h3>
+            </div>
         </div>
-    }
-</div>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    </div>
 }
 
 
