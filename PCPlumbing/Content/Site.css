@@ -39,26 +39,6 @@ textarea {
     height: 200px;
     border-bottom: 5px solid #2e3192;
 }
-/*sm*/
-@media (min-width: 768px){
-    .view{
-        max-width: 750px;
-    }
-}
-
-/*md*/
-@media (min-width: 992px){
-    .view {
-        max-width: 970px;
-    }
-}
-
-/*lrg*/
-@media (min-width: 1200px){
-    .view {
-        max-width: 1170px;
-    }
-}
 
 .view {
     margin: auto;
@@ -157,4 +137,39 @@ footer {
     margin: auto;
     padding: 10px;
     border-radius: 10px;
+}
+#contactSml{
+    display: none;
+}
+
+/*sm*/
+@media (min-width: 768px){
+    .view{
+        max-width: 750px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .contactDets {
+        display: none;
+    }
+    #contactSml{
+        background: #ccc;
+        display: block;
+    }
+}
+
+/*md*/
+@media (min-width: 992px){
+    .view {
+        max-width: 970px;
+    }    
+}
+
+/*lrg*/
+@media (min-width: 1200px){
+    .view {
+        max-width: 1170px;
+    }
 }
