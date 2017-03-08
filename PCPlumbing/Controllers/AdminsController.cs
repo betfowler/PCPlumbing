@@ -17,7 +17,6 @@ namespace PCPlumbing.Controllers
     {
         private PCPlumbingContext db = new PCPlumbingContext();
 
-        [AllowAnonymous]
         // GET: Admins
         public ActionResult Index()
         {
@@ -29,8 +28,6 @@ namespace PCPlumbing.Controllers
             return View();
         }
 
-
-        [Authorize]
         // GET: Admins/Create
         public ActionResult Create()
         {
@@ -72,7 +69,7 @@ namespace PCPlumbing.Controllers
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Logout()
         {
-            SessionPersister.Username = string.Empty;
+            SessionPersister.Username = null;
             return RedirectToAction("Index", "Home");
         }
 

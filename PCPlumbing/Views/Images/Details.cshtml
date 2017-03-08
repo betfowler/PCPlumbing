@@ -4,9 +4,18 @@
     ViewBag.Title = "Remove Images";
 }
 
+
+
 <div class="form-horizontal">
-    <h4>Remove Existing Images</h4>
-    @Html.ActionLink("Add a new image", "Create", "Images", new { style = "float: right" })
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Select Image To Remove</h3>
+            @Html.ActionLink("Add a new image", "Create", "Images")
+        </div>
+        <div class="col-md-2">
+            <p>@Html.ActionLink("Log Out", "Logout", "Admins")</p>
+        </div>
+    </div>
     <hr />
 
     <div class="row">
