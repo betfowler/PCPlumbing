@@ -3,6 +3,18 @@
 }
 
 <div class="row" id="break"></div>
+
+@{
+    if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @ViewBag.Success
+        </div>
+    }
+}
+
+
 <div class="row">
     <div class="col-md-4">
         <div class="contactBox">
