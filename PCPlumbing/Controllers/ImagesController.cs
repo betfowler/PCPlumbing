@@ -74,12 +74,26 @@ namespace PCPlumbing.Controllers
             return View(images);
         }
 
-        // GET: Images/Delete/5
-        public ActionResult Delete()
+        public ActionResult Details()
         {
             if (SessionPersister.Username != null)
                 return View(db.Images.ToList());
             return RedirectToAction("AccessDenied", "Admins");
+        }
+
+        // GET: Images/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Images image = db.Images.Find(id);
+            if (image == null)
+            {
+                return HttpNotFound();
+            }
+            return View(image);
         }
 
         // POST: Images/Delete/5
@@ -88,9 +102,18 @@ namespace PCPlumbing.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Images images = db.Images.Find(id);
+            string imagePath = db.Images.Find(id).Image;
+
+            var path = HttpContext.Server.MapPath(imagePath);
+
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+
             db.Images.Remove(images);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details");
         }
 
         protected override void Dispose(bool disposing)

@@ -106,5 +106,4 @@
     $("#socialMedia #google").mouseout(function () {
         $(this).css("color", "#333")
     })
-
 })

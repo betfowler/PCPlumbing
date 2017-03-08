@@ -1,42 +1,37 @@
-﻿@model IEnumerable<PCPlumbing.Models.Images>
+﻿@model PCPlumbing.Models.Images
 
 @{
-    ViewBag.Title = "Remove Images";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Remove</h2>
+<h2>Delete</h2>
 
-<div class="form-horizontal">
-    <h4>Remove Existing Images</h4>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Image</h4>
     <hr />
+    <dl class="dl-horizontal">
+        <dt> 
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd id="remove">
+            <img src="@Model.Image" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+</dl>
 
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-3">
-                <div class="row" id="remove">
-                    <img src="@item.Image" />
-                </div>
-                <div class="row">
-                    @Html.DisplayFor(modelItem => item.ImageName)
-                </div>
-                <div class="row">
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-default" /> |
-                            @Html.ActionLink("Delete", "Delete")
-                        </div>
-                    }
-                    <hr />
-                </div>
-            </div>
-        }
-    </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Details")
+        </div>
+    }
 </div>
-
-<hr />
-
-<p>@Html.ActionLink("Add a new image", "Create", "Images")</p>

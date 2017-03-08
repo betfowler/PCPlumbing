@@ -1,42 +1,31 @@
-﻿@model PCPlumbing.Models.Images
+﻿@model IEnumerable<PCPlumbing.Models.Images>
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Remove Images";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Images</h4>
+<div class="form-horizontal">
+    <h4>Remove Existing Images</h4>
+    @Html.ActionLink("Add a new image", "Create", "Images", new { style = "float: right" })
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageDescription)
-        </dd>
-
-    </dl>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="row" id="remove">
+                    <img src="@item.Image" />
+                </div>
+                <div class="row">
+                    @Html.DisplayFor(modelItem => item.ImageName)
+                </div>
+                <div class="row">
+                    @Html.ActionLink("Delete", "Delete", "Images", new { id = item.ID }, null)
+                </div>
+                <hr />
+            </div>
+        }
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<hr />
