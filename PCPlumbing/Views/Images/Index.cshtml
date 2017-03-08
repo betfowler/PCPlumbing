@@ -40,7 +40,7 @@
                             counter = counter + 1;
                             var test = Model.Count();
                         }
-                        <img id="@counter" onclick="openModal('@item.Image', '@item.ImageName', @counter, @test)" class="hover-shadow" src="..@item.Image" alt="" />
+                        <img id="@counter" onclick="openModal('@item.Image', @counter, @test)" class="hover-shadow" src="..@item.Image" alt="" />
                     </div>
                     <div class="row" id="galleryTitle">
                         <h5>@Html.DisplayFor(modelItem => item.ImageName)</h5>

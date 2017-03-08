@@ -7,6 +7,7 @@
         $(this).css("cursor", "pointer");
     })
 
+    //**HOMEPAGE ICON AND TEXT SET WHEN MOUSEOVER CHANGE ALL BACK TO ORIGINAL**//
     $(".row .col-md-2 img").mouseover(function () {
         //plumbing
         $("#plumb img").attr("src", "../Content/Images/Plumbing.png");
@@ -27,6 +28,8 @@
         $("#contact img").attr("src", "../Content/Images/Contact.png");
         $("#contactArr .arrow-up").css("border-bottom", "50px solid white");
     })
+
+    //**HOMEPAGE ICONS MOUSEOVER: IMAGE AND TEXT CHANGE**//
     //plumbing #1
     $("#plumb img").mouseover(function () {
         $(this).attr("src", "../Content/Images/PlumbingAct.png")
@@ -34,7 +37,6 @@
         $("#plumbArr .arrow-up").css("border-bottom", "50px solid #408080")
         $(".desc h1").text("Plumbing")
         $(".desc h3").text("Alongside central heating repairs and installation, we can also take care of all other plumbing jobs around the home.")
-        
     })
 
     //central heating #2
@@ -82,6 +84,8 @@
         $(".desc h3").text("For a free quote or for more information regarding our quality plumbing and heating services, please contact us.")
     })
 
+
+    //**SOCIAL MEDIA ICONS**//
     $("#socialMedia #facebook").mouseover(function () {
         $(this).css("color", "#3B5998")
     })

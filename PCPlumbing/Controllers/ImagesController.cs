@@ -40,35 +40,37 @@ namespace PCPlumbing.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Image,ImageName,ImageDescription")] Images images)
         {
-            if(Request.Files.Count > 0)
+            if (ModelState.IsValid)
             {
-                var file = Request.Files[0];
-                if(file != null && file.ContentLength > 0)
+                if (Request.Files.Count > 0)
                 {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("../Content/Images/Gallery"), fileName);
-
-                    //if file doesn't already exist
-                    string pathToString = path.ToString();
-                    string imageLocation = "\\Content\\Images\\Gallery";
-                    int pathIndex = pathToString.IndexOf(imageLocation);
-                    string imagePathToSave = pathToString.Substring(pathIndex);
-
-                    if(db.Images.Where(im => im.Image.Equals(imagePathToSave)).FirstOrDefault() != null)
+                    var file = Request.Files[0];
+                    if (file != null && file.ContentLength > 0)
                     {
-                        ViewBag.Error = "An image with this name already exists.";
-                        return View("Create");
-                    }
-                    
-                    images.Image = imagePathToSave;
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath("../Content/Images/Gallery"), fileName);
 
-                    file.SaveAs(path);
-                    db.Images.Add(images);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                        //if file doesn't already exist
+                        string pathToString = path.ToString();
+                        string imageLocation = "\\Content\\Images\\Gallery";
+                        int pathIndex = pathToString.IndexOf(imageLocation);
+                        string imagePathToSave = pathToString.Substring(pathIndex);
+
+                        if (db.Images.Where(im => im.Image.Equals(imagePathToSave)).FirstOrDefault() != null)
+                        {
+                            ViewBag.Error = "An image with this name already exists.";
+                            return View("Create");
+                        }
+
+                        images.Image = imagePathToSave;
+
+                        file.SaveAs(path);
+                        db.Images.Add(images);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
                 }
             }
-
             return View(images);
         }
 

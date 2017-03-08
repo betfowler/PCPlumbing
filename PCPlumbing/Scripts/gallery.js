@@ -2,6 +2,9 @@
 var numSlides;
 function openModal(imgSource, index, noSlides) {
 
+    console.log(imgSource)
+    console.log(index)
+    console.log(noSlides)
     var winHeight = $(window).height() - 235;
     $("#mySlides img").css("height", winHeight);
     $("#galleryModal").css("display", "block");
@@ -44,6 +47,7 @@ function showSlides(n) {
 }
 
 function plusSlides(n) {
+    console.log(n)
     slideIndex = slideIndex + n;
     showSlides(slideIndex);
     
