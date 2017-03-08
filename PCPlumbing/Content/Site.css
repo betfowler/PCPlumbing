@@ -34,9 +34,8 @@ textarea {
     background-color: #404040;
     border-color: #333333;
 }
-
 .menubar {
-    background-color: #cccccc;
+    background-color: #e6e6e6;
     height: 200px;
     border-bottom: 5px solid #2e3192;
 }
@@ -120,14 +119,14 @@ footer {
     margin-top: -116px;
     height: 116px;
     clear: both;
-    background-color: #cccccc;
-    border-top: 5px solid #2e3192;
+    background-color: #efefef;
+    border-top: 2px solid #2e3192;
 }
 
 .subFooter {
     width: 100%;
     padding: 1rem;
-    background-color: #404040;
+    background-color: #737373;
     color: white;
     font-size: 14px;
 }
@@ -150,4 +149,12 @@ footer {
 #imgCol img{
     display: block;
     width: 90%;
+}
+
+.contactform {
+    width: 300px;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
 }

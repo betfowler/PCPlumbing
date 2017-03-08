@@ -20,10 +20,9 @@ namespace PCPlumbing.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(string name)
         {
-            ViewBag.Message = "Your contact page.";
-
+            var test = name;
             return View();
         }
 

@@ -38,7 +38,6 @@
                     <li>@Html.ActionLink("Advice", "Advice", "Home")</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                 </ul>
-                <!--@Html.Partial("_LoginPartial")-->
             </div>
         </div>
     </div>
@@ -98,7 +97,9 @@
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/fancybox")
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3YWJOvXiysi4MxpijwbKV-E7NYvu5dJ8&callback=initMap">
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

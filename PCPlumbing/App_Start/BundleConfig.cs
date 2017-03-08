@@ -26,11 +26,6 @@ namespace PCPlumbing
                       "~/Scripts/gallery.js"
                       ));
 
-            bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
-                    "~/Scripts/FancyBox/jquery.fancybox-init.js",
-                    "~/Scripts/FancyBox/jquery.fancybox.pack.js"
-                ));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",

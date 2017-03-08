@@ -1,17 +1,53 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_InfoLayout.cshtml";
+    ViewBag.Title = "Contact Us";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@section ContactDesc{
+    <h3><b>Contact Us At PC Plumbing</b></h3>
+    <p>For a <b>free</b> quote or for more information regarding our quality plumbing and heating services, please contact us using the details provided.</p>
+}
+@section contactExtra{
+    <br />
+    PC Plumbing, Briadene, Forton Road, Chard, Somerset, TA20 2HS
+}
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+@section pageTitle{
+    Contact Us
+}
+@section pageIcon {
+    <img src="../Content/Images/Contact.png" />
+}
+
+@section section1{
+    <div id="map"></div>
+}
+@section pageHeading2{
+    <br />
+    <hr />
+    <h4>For a <b>free</b> quote or more information about us, feel free to give us a ring or fill in the form below:</h4>
+}
+@section section2{
+    <div class="contactform">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="text" class="form-control" id="contact" required />
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea rows="4" class="form-control" id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+}

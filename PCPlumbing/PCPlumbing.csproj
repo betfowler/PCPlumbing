@@ -240,11 +240,6 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\FancyBox\fancybox_loading.gif" />
-    <Content Include="Scripts\FancyBox\fancybox_overlay.png" />
-    <Content Include="Scripts\FancyBox\fancybox_sprite.png" />
-    <Content Include="Scripts\FancyBox\jquery.fancybox-init.js" />
-    <Content Include="Scripts\FancyBox\jquery.fancybox.pack.js" />
     <Content Include="Scripts\gallery.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
