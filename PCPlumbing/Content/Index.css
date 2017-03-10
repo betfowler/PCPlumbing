@@ -1,5 +1,9 @@
-﻿#welcomeMessage h4 {
+﻿#welcomeMessage h5 {
     color: #2e3192;
+}
+
+#welcomeMessage h2{
+    font-size: 25px;
 }
 
 #int-menu img{
@@ -16,14 +20,14 @@
 .arrow-up {
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 50px solid white;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid white;
     margin: auto;
 }
 
 #plumbArr .arrow-up{
-    border-bottom: 50px solid #408080;
+    border-bottom: 30px solid #408080;
 }
 
 #menuLabel {

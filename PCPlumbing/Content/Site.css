@@ -4,6 +4,9 @@
 }
 
 /* Set padding to keep content from hitting the edges */
+.container {
+    max-width: 950px;
+}
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -36,7 +39,8 @@ textarea {
 }
 .menubar {
     background-color: #e6e6e6;
-    height: 200px;
+    height: 150px;
+    /*height: 200px;*/
     border-bottom: 5px solid #2e3192;
 }
 
@@ -47,7 +51,8 @@ textarea {
 .menubar img{
     display: block;
     margin: auto;
-    height: 190px;
+    height: 130px;
+    /*height: 190px;*/
 }
 .contactDets{
     color: #404040;
@@ -55,7 +60,8 @@ textarea {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 200px;
+    height: 150px;
+    /*height: 200px;*/
     text-align: right;
 }
 
@@ -84,7 +90,7 @@ textarea {
     text-align: right;
 }
 #contact {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
 }
 #contact i {
@@ -96,19 +102,25 @@ textarea {
 
 footer {
     position: relative;
-    margin-top: -116px;
-    height: 116px;
+    margin-top: -80px;
+    height: 80px;
     clear: both;
     background-color: #efefef;
-    border-top: 2px solid #2e3192;
+    /*border-top: 2px solid #2e3192;*/
+    font-size: 16px;
+    padding-top: 1.5px;
 }
 
 .subFooter {
     width: 100%;
-    padding: 1rem;
+    padding: 5px;
     background-color: #737373;
     color: white;
-    font-size: 14px;
+    font-size: 10px;
+}
+
+#contactInfo {
+    text-align: center;
 }
 
 #socialMedia {
@@ -119,10 +131,8 @@ footer {
     color: #333;
 }
 
-#address {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
+#footerAddress {
+    font-size: 11px;
     padding-top: 10px;
 }
 
