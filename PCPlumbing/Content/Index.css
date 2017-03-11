@@ -50,3 +50,32 @@
 #text ul li:before{
     content: '✓';
 }
+
+.smlMenu {
+    display: none;
+}
+
+/*sm*/
+@media (max-width: 768px) {
+    .desc {
+        border: 5px solid #2e3192;
+    }
+
+    #plumbArr .arrow-up{
+        border-bottom: 30px solid #2e3192;
+    }
+
+    .mainMenu {
+        display: none;
+    }
+    .smlMenu{
+        display: block;
+    }
+    .smlMenu img{
+        width: 20%;
+    }
+
+    .smlMenu a{
+        background-color: #2e3192;
+    }
+}

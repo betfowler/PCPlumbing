@@ -106,7 +106,6 @@ footer {
     height: 80px;
     clear: both;
     background-color: #efefef;
-    /*border-top: 2px solid #2e3192;*/
     font-size: 16px;
     padding-top: 1.5px;
 }
@@ -114,18 +113,26 @@ footer {
 .subFooter {
     width: 100%;
     padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
     background-color: #737373;
     color: white;
     font-size: 10px;
 }
+.subFooter a {
+    color: white;
+}
 
 #contactInfo {
     text-align: center;
+    background-color: #efefef;
 }
 
 #socialMedia {
     font-size: 30px;
     text-align: center;
+    padding-bottom: 5px;
+
 }
 #socialMedia a {
     color: #333;
@@ -165,8 +172,11 @@ footer {
         display: none;
     }
     #contactSml{
-        background: #ccc;
         display: block;
+        padding-left: 20px;
+    }
+    .navbar-header{
+
     }
 }
 
