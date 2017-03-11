@@ -31,7 +31,7 @@ namespace PCPlumbing.Controllers
                 var body = "<p>Name: {0}</p><p>Email address: {1}</p><p>Contact number: {2}</p><p>Message: {3}</p>";
                 string messageBody = string.Format(body, name, email, contact, message);
                 string to = "bethany.fowler14@gmail.com";
-                string from = "eStar.smtp.fowler@gmail.com";
+                string from = "pcplumbingsomerset@gmail.com";
                 string subject = "PC Plumbing Online Enquiry";
 
                 await SendMessage(to, from, messageBody, subject);
@@ -56,8 +56,8 @@ namespace PCPlumbing.Controllers
             {
                 var credential = new NetworkCredential
                 {
-                    UserName = "estar.smtp.fowler@gmail.com",
-                    Password = "16eStar17"
+                    UserName = "pcplumbingsomerset@gmail.com",
+                    Password = "gnibmulp1"
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";

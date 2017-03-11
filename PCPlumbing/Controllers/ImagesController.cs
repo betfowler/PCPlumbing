@@ -67,7 +67,9 @@ namespace PCPlumbing.Controllers
                         file.SaveAs(path);
                         db.Images.Add(images);
                         db.SaveChanges();
-                        return RedirectToAction("Index");
+                        ModelState.Clear();
+                        ViewBag.Success = "Image successfully added";
+                        return View("Create");
                     }
                 }
             }

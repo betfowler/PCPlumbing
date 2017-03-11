@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
-    var winHeight = $(window).height() - 235;
-    $("body").css("height", winHeight);
+    var winHeight = $(window).height() - 223.6;
+    $("body").css("min-height", winHeight);
 
     $("#galleryImg img").mouseover(function () {
         $(this).css("cursor", "pointer");

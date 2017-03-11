@@ -151,8 +151,34 @@
     height: 125px;
 }
 
+#smlContact{
+    display: none;
+}
+
 @media (max-width: 768px) {
-    .pageTitle {
+    #pageTitle {
         font-size: 40px;
+    }
+    #lrgContact{
+        display: none;
+    }
+    #smlContact{
+        display: block;
+    }
+    #pageIcon img {
+        padding-top: 5px;
+        width: 100%;
+    }
+    #galleryCol{
+        padding-left: 50px;
+    }
+
+    #mySlides img{
+        width: 400px;
+        height: auto;
+    }
+
+    #galleryModal{
+        width: 100%;
     }
 }

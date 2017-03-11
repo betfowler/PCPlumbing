@@ -11,6 +11,13 @@
             <strong>Error!</strong> @ViewBag.Error
         </div>
     }
+
+    if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">
+            <strong>Success!</strong> @ViewBag.Success
+        </div>
+    }
 }
 
 @using (Html.BeginForm("Create", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -21,7 +28,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h3>Add A New Image From Your Files</h3>
-                <p>@Html.ActionLink("Select images to remove", "Details", "Images")</p>
+                <a href="../Images/Details" class="btn btn-primary">Select Images to Remove</a>
             </div>
             <div class="col-md-2">
                 <p>@Html.ActionLink("Log Out", "Logout", "Admins")</p>

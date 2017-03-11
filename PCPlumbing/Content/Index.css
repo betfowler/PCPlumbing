@@ -61,6 +61,11 @@
         border: 5px solid #2e3192;
     }
 
+    .desc h4{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     #plumbArr .arrow-up{
         border-bottom: 30px solid #2e3192;
     }

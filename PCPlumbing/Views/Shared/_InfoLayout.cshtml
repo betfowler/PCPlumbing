@@ -16,7 +16,7 @@
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" id="lrgContact">
         <div class="contactBox">
             <h4>@RenderSection("contactDesc", false)</h4>
             <h3><b>01460 68752</b></h3>
@@ -36,6 +36,20 @@
             <div class="col-md-2 col-xs-2" id="pageIcon">@RenderSection("pageIcon", false)</div>
             <div class="col-md-10 col-xs-10" id="pageTitle">
                 @RenderSection("pageTitle", false)
+            </div>
+        </div>
+        <div class="row" id="smlContact">
+            <div class="contactBox">
+                <h4>@RenderSection("contactDescSml", false)</h4>
+                <h3><b>01460 68752</b></h3>
+                <h3><b>07968 210 302</b></h3>
+                <h4>paul.pcplumbing@me.com</h4>
+                <h5>@RenderSection("contactExtraSml", false)</h5>
+                <div id="socialMedia">
+                    <a href="https://www.facebook.com/PC-Plumbing-829284977149332/"><i class="fa fa-facebook-square" aria-hidden="true" id="facebook"></i></a>
+                    <a href="https://twitter.com/pcplumbiop"><i class="fa fa-twitter-square" aria-hidden="true" id="twitter"></i></a>
+                    <a href="https://plus.google.com/104697928990093673440"><i class="fa fa-google-plus-square" aria-hidden="true" id="google"></i></a>
+                </div>
             </div>
         </div>
         <div class="row">
