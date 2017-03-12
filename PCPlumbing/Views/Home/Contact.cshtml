@@ -32,6 +32,7 @@
     <h4>For a <b>free</b> quote or more information about us, feel free to give us a ring or fill in the form below:</h4>
 }
 @section section1{
+    
 
     <div class="contactform">
         <form>
@@ -52,10 +53,13 @@
             <label for="message">Your Message:</label>
             <textarea rows="4" class="form-control" id="message" name="message" required></textarea>
         </div>
+        @using reCAPTCHA.MVC;
         @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-default">Submit</button>
+            @Html.Recaptcha()
+            @Html.ValidationMessage("ReCaptcha")
+            <button type="submit" class="btn btn-default" id="formSubmit">Submit</button>
         }
         </form>
     </div>

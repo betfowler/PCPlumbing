@@ -56,16 +56,3 @@ function plusSlides(n) {
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
-
-//**GoogleMap**//
-function initMap() {
-    var uluru = { lat: 50.864133, lng: -2.954250 };
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: uluru
-    });
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
-}

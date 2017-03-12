@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Net;
+using reCAPTCHA.MVC;
 
 namespace PCPlumbing.Controllers
 {
@@ -23,20 +24,26 @@ namespace PCPlumbing.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Contact(string name, string email, string contact, string message)
+        [CaptchaValidator]
+        public async Task<ActionResult> Contact(string name, string email, string contact, string message, bool captchaValid)
         {
             if (name != null)
             {
-                //send email
-                var body = "<p>Name: {0}</p><p>Email address: {1}</p><p>Contact number: {2}</p><p>Message: {3}</p>";
-                string messageBody = string.Format(body, name, email, contact, message);
-                string to = "bethany.fowler14@gmail.com";
-                string from = "pcplumbingsomerset@gmail.com";
-                string subject = "PC Plumbing Online Enquiry";
 
-                await SendMessage(to, from, messageBody, subject);
+                if (ModelState.IsValid)
+                {
+                    //send email
+                    var body = "<p>Name: {0}</p><p>Email address: {1}</p><p>Contact number: {2}</p><p>Message: {3}</p>";
+                    string messageBody = string.Format(body, name, email, contact, message);
+                    string to = "bethany.fowler14@gmail.com";
+                    string from = "pcplumbingsomerset@gmail.com";
+                    string subject = "PC Plumbing Online Enquiry";
 
-                ViewBag.Success = "Your message has been sent to PC Plumbing";
+                    await SendMessage(to, from, messageBody, subject);
+
+                    ViewBag.Success = "Your message has been sent to PC Plumbing";
+                }
+                return View();
 
             }
             return View();
