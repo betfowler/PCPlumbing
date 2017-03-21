@@ -65,6 +65,11 @@
     margin: auto;
 }
 
+#slideImage{
+    padding-left: 0px;
+    vertical-align: middle;
+
+}
 
 /*MODAL*/
 
@@ -95,7 +100,6 @@
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    max-width: 80%;
 }
 
 #mySlides{
@@ -107,6 +111,7 @@
     display: none;
     width: 100%;
 }
+
 
 .close {
     color: white;
@@ -183,6 +188,12 @@
         width: 400px;
         height: auto;
     }
+
+    #beforeAfterSlides img{
+        width: 200px;
+        height: auto;
+    }
+    
 
     #galleryModal{
         width: 100%;

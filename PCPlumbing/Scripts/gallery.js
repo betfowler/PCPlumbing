@@ -18,7 +18,7 @@ var slideIndex;
 var numSlides;
 function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
     var winHeight = $(window).height() - 235;
-    $("#mySlides img").css("height", winHeight);
+    var winWidth = $(window).width() - 200;
     $("#galleryModal").css("display", "block");
 
     //get image name and see if before image is different
@@ -31,17 +31,21 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
         $("#beforeAfterSlides").css("display", "block");
         $("#beforeImg").attr("src", "../Content/Images/Gallery/" + imgBeforeSource);
         $("#afterImg").attr("src", "../Content/Images/Gallery/" + imgSource);
+        var halfWidth = winWidth /2; 
+        $("#beforeAfterSlides img").css("width", halfWidth);
+        $("#beforeAfterSlides img").css("max-height", winHeight);
+        var imgWidth = winWidth;
     }
     else {
+        $("#mySlides img").css("height", winHeight);
         $("#mySlides").css("display", "block");
         $("#largeImg").attr("src", "../Content/Images/Gallery/" + imgSource);
+        var imgWidth = $("#mySlides img").width();
     }
 
     //get image title
-
-
     //get image width
-    var imgWidth = $("#mySlides img").width();
+    
     $(".modal-content").css({ "height": winHeight, "width": imgWidth });
     slideIndex = index;
     numSlides = noSlides;
