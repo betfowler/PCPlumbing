@@ -25,7 +25,7 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title, descripti
             var halfWidth = winWidth / 2;
             $("#beforeAfterSlides img").css("width", halfWidth);
             var height = $("#beforeAfterSlides img").height();
-            $("#beforeAfterSlides img").css("max-height", height);
+            $("#beforeAfterSlides img").css("max-height", winHeight);
             $(".modal-content").css({ "height": height, "width": winWidth });
         }
         else {

@@ -171,15 +171,20 @@ footer {
     .contactDets {
         display: none;
     }
-    #contactSml{
+
+    #contactSml {
         display: block;
         padding-left: 20px;
     }
-    body{
+
+    body {
         width: 100%;
         padding: 0px;
         margin: 0px;
+    }
 
+    .menubar{
+        margin-top: 50px;
     }
 }
 
