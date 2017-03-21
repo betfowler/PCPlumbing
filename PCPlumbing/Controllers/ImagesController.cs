@@ -32,20 +32,7 @@ namespace PCPlumbing.Controllers
                 return View();
             return RedirectToAction("AccessDenied", "Admins");
         }
-
-        string saveImage(string pathToString)
-        {
-            string imageLocation = "\\Content\\Images\\Gallery";
-            int pathIndex = pathToString.IndexOf(imageLocation);
-            string imagePathToSave = pathToString.Substring(pathIndex);
-
-            if (db.Images.Where(im => im.Image.Equals(imagePathToSave)||im.ImageBefore.Equals(imagePathToSave)).FirstOrDefault() != null)
-            {
-                return ("error");
-            }
-            return ("success");
-        }
-
+        
         // POST: Images/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -66,7 +53,7 @@ namespace PCPlumbing.Controllers
                             var fileName = Path.GetFileName(file.FileName);
                             var path = Path.Combine(Server.MapPath("../Content/Images/Gallery"), fileName);
 
-                            if (saveImage(path.ToString()) == "error")
+                            if (db.Images.Where(im => im.Image.Equals(fileName) || im.ImageBefore.Equals(fileName)).FirstOrDefault() != null)
                             {
                                 ViewBag.Error = "An image with this name already exists.";
                                 return View("Create");
@@ -129,9 +116,14 @@ namespace PCPlumbing.Controllers
         {
             Images images = db.Images.Find(id);
             string imagePath = db.Images.Find(id).Image;
+            string imageBeforePath = db.Images.Find(id).ImageBefore;
 
-            var path = HttpContext.Server.MapPath(imagePath);
-
+            var path = HttpContext.Server.MapPath("/Content/Images/Gallery/" + imagePath);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            path = HttpContext.Server.MapPath("/Content/Images/Gallery/" + imageBeforePath);
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);

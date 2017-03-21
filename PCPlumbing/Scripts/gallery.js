@@ -10,7 +10,7 @@ function showAfter(imgSource, imgID) {
 
 var slideIndex;
 var numSlides;
-function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
+function openModal(imgSource, imgBeforeSource, index, noSlides, title, description) {
     var winHeight = $(window).height() - 235;
     var winWidth = $(window).width() - 200;
     $("#galleryModal").css("display", "block");
@@ -44,6 +44,9 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
         $(".modal-content").css({ "height": winHeight, "width": imgWidth });
     }
 
+    $("#caption").text(title);
+    $("#description").text(description);
+
     //title and description
     slideIndex = index;
     numSlides = noSlides;
@@ -74,11 +77,13 @@ function showSlides(n) {
     nextDetails = nextDetails.replace(/\ /g, '');
     var values = nextDetails.split(',');
     
-    openModal(values[0], values[1], values[2], values[3], values[4]);
+    openModal(values[0], values[1], values[2], values[3], values[4], values[5]);
 
 }
 
 function plusSlides(n) {
+    $("#beforeAfterSlides").css("display", "none");
+    $("#mySlides").css("display", "none");
     slideIndex = parseInt(slideIndex) + n;
     showSlides(slideIndex);
 }

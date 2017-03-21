@@ -19,19 +19,39 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt> 
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd id="remove">
-            <img src="../Content/Images/Gallery/@Model.Image" />
-        </dd>
+        @{
+            if (Model.Image == Model.ImageBefore)
+            {
+                <dt>
+                    <label for="remove"><b>Photo</b></label>
+                </dt>
+                <dd id="remove">
+                    <img src="../../Content/Images/Gallery/@Model.Image" />
+                </dd>
+            }
+            else
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+                <dd id="remove">
+                    <img src="../../Content/Images/Gallery/@Model.Image" />
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageBefore)
+                </dt>
+                <dd id="remove">
+                    <img src="../../Content/Images/Gallery/@Model.ImageBefore" />
+                </dd>
+            }
+        }
         <dt>
             @Html.DisplayNameFor(model => model.ImageName)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ImageName)
         </dd>
-</dl>
+    </dl>
 
     @using (Html.BeginForm())
     {

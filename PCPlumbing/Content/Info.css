@@ -68,6 +68,11 @@
 
 /*MODAL*/
 
+#caption,
+#description{
+    color: white;
+}
+
 .object-fit_cover {
     object-fit: cover
 }
