@@ -8,40 +8,42 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <p class="navbar-text visible-xs-inline-block" id="contactSml">
-                    <i class="fa fa-phone" aria-hidden="true"></i><b> 01460 68752</b>
-                    &nbsp;<i>or</i>&nbsp; <b>07968 210 302</b>
-                </p>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Services
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Plumbing", "Plumbing", "Home")</li>
-                            <li>@Html.ActionLink("Central Heating", "CentralHeating", "Home")</li>
-                            <li>@Html.ActionLink("Boilers", "Boilers", "Home")</li>
-                            <li>@Html.ActionLink("Bathrooms", "Bathrooms", "Home")</li>
-                            <li>@Html.ActionLink("Renewable Energy", "Renewable", "Home")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("Gallery", "Index", "Images")</li>
-                    <li>@Html.ActionLink("Advice", "Advice", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                </ul>
+    <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <p class="navbar-text visible-xs-inline-block" id="contactSml">
+                        <i class="fa fa-phone" aria-hidden="true"></i><b> 01460 68752</b>
+                        &nbsp;<i>or</i>&nbsp; <b>07968 210 302</b>
+                    </p>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Services
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Plumbing", "Plumbing", "Home")</li>
+                                <li>@Html.ActionLink("Central Heating", "CentralHeating", "Home")</li>
+                                <li>@Html.ActionLink("Boilers", "Boilers", "Home")</li>
+                                <li>@Html.ActionLink("Bathrooms", "Bathrooms", "Home")</li>
+                                <li>@Html.ActionLink("Renewable Energy", "Renewable", "Home")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Gallery", "Index", "Images")</li>
+                        <li>@Html.ActionLink("Advice", "Advice", "Home")</li>
+                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -49,7 +51,9 @@
         <div class="view">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-6"><img src="../Content/Images/PCPlumbingLogo.png" /></div>
+                <div class="col-md-6 col-xs-12">
+                    <img src="../Content/Images/PCPlumbingLogo.png" />
+                </div>
                 <div class="col-md-3">
                     <div class="contactDets">
                         <h4><b>01460 68752</b></h4>

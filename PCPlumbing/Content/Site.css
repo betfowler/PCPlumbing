@@ -75,6 +75,7 @@ textarea {
 
 #break {
     height: 20px;
+    width: 100%;
 }
 
 #smlbreak {
@@ -175,7 +176,10 @@ footer {
         display: block;
         padding-left: 20px;
     }
-    .navbar-header{
+    body{
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
 
     }
 }

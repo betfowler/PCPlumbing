@@ -77,11 +77,6 @@
 }
 
 
-.mySlides img {
-    margin: auto;
-    max-width: 80%;
-}
-
 .modal {
     overflow: hidden;
     overflow-y: hidden;
@@ -100,6 +95,17 @@
     position: relative;
     background-color: #fefefe;
     margin: auto;
+    max-width: 80%;
+}
+
+#mySlides{
+   display: none;
+   width: 100%;
+}
+
+#beforeAfterSlides{
+    display: none;
+    width: 100%;
 }
 
 .close {

@@ -14,8 +14,10 @@ namespace PCPlumbing.Models
     {
         [Key]
         public int ID { get; set; }
-        [Display(Name = "Photo")]
+        [Display(Name = "Photo After")]
         public string Image { get; set; }
+        [Display(Name = "Photo Before")]
+        public string ImageBefore { get; set; }
         [Display(Name = "Title")]
         public string ImageName { get; set; }
         [Display(Name = "Description")]

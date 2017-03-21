@@ -38,9 +38,9 @@
                     <div class="row" id="galleryImg">
                         @{
                             counter = counter + 1;
-                            var test = Model.Count();
+                            var noSlides = Model.Count();
                         }
-                        <img id="@counter" onclick="openModal('@item.Image', @counter, @test)" class="hover-shadow object-fit_cover" src="..@item.Image" alt="" />
+                        <img id="@counter" onclick="openModal('@item.Image', '@item.ImageBefore', @counter, @noSlides, '@item.ImageName')" onmouseover="showBefore('@item.ImageBefore', @counter)" onmouseout="showAfter('@item.Image', @counter)" class="hover-shadow object-fit_cover" src="..@item.Image" alt="" />
                     </div>
                     <div class="row" id="galleryTitle">
                         <h5>@Html.DisplayFor(modelItem => item.ImageName)</h5>
@@ -55,6 +55,10 @@
         <div class="modal-content">
             <div id="mySlides">
                 <img id="largeImg" class="object-fit: contain" />
+            </div>
+            <div id="beforeAfterSlides">
+                <img id="beforeImg" class="object-fit: contain" />
+                <img id="afterImg" class="object-fit: contain" />
             </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094</a>
             <a class="next" onclick="plusSlides(1)">&#10095</a>
