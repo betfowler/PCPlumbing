@@ -1,19 +1,9 @@
 ﻿//rollover to show before image
 function showBefore(beforeImgSource, imgID) {
-    console.log(beforeImgSource);
-    var length = beforeImgSource.length;
-    var removelength = "contentimagesgallery".length;
-    beforeImgSource = beforeImgSource.substring(removelength, length)
-    console.log(beforeImgSource);
     $("#" + imgID).attr("src", "../Content/Images/Gallery/" + beforeImgSource);
 }
 
 function showAfter(imgSource, imgID) {
-    console.log(imgSource);
-    var length = imgSource.length;
-    var removelength = "contentimagesgallery".length;
-    imgSource = imgSource.substring(removelength, length)
-    console.log(imgSource);
     $("#" + imgID).attr("src", "../Content/Images/Gallery/" + imgSource);
 }
 
@@ -24,12 +14,6 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
     var winHeight = $(window).height() - 235;
     var winWidth = $(window).width() - 200;
     $("#galleryModal").css("display", "block");
-
-    //get image name and see if before image is different
-    var length = imgSource.length;
-    var removelength = "contentimagesgallery".length;
-    imgSource = imgSource.substring(removelength, length);
-    imgBeforeSource = imgBeforeSource.substring(removelength, length);
 
     if (imgSource != imgBeforeSource) {
         $("#beforeAfterSlides").css("display", "block");
@@ -60,8 +44,7 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
         $(".modal-content").css({ "height": winHeight, "width": imgWidth });
     }
 
-    //get image title
-    //get image width
+    //title and description
     slideIndex = index;
     numSlides = noSlides;
 }
@@ -74,7 +57,7 @@ function closeModal() {
 
 function showSlides(n) {
     var i;
-    
+   
     //if reached the end of the loop return to the beginning
     if (n > numSlides) {
         slideIndex = 1
@@ -85,28 +68,17 @@ function showSlides(n) {
     }
 
     //get image path
-    var path = $("#" + slideIndex).attr('src');
-    $("#largeImg").attr("src", path);
+    var nextDetails = $("#" + slideIndex).attr("onclick");
+    nextDetails = nextDetails.substr(10).replace(/\'/g, '');
+    nextDetails = nextDetails.replace(/\)/g, '');
+    nextDetails = nextDetails.replace(/\ /g, '');
+    var values = nextDetails.split(',');
+    
+    openModal(values[0], values[1], values[2], values[3], values[4]);
 
-    //get beforeimage path
-    console.log($("#" + slideIndex));
-
-    var winHeight = $(window).height() - 235;
-    $("#mySlides img").css("height", winHeight);
-    var imgWidth = $("#mySlides img").width();
-    $(".modal-content").css({ "height": winHeight, "width": imgWidth });
 }
 
 function plusSlides(n) {
-    $("#mySlides").css("display", "none");
-    $("#beforeAfterSlides").css("display", "none");
-    slideIndex = slideIndex + n;
+    slideIndex = parseInt(slideIndex) + n;
     showSlides(slideIndex);
-    
-}
-
-function currentSlide(n) {
-    $("#mySlides").css("display", "none");
-    $("#beforeAfterSlides").css("display", "none");
-    showSlides(slideIndex = n);
 }

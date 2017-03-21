@@ -39,11 +39,11 @@ namespace PCPlumbing.Controllers
             int pathIndex = pathToString.IndexOf(imageLocation);
             string imagePathToSave = pathToString.Substring(pathIndex);
 
-            if (db.Images.Where(im => im.Image.Equals(imagePathToSave)).FirstOrDefault() != null)
+            if (db.Images.Where(im => im.Image.Equals(imagePathToSave)||im.ImageBefore.Equals(imagePathToSave)).FirstOrDefault() != null)
             {
                 return ("error");
             }
-            return (imagePathToSave);
+            return ("success");
         }
 
         // POST: Images/Create
@@ -75,12 +75,12 @@ namespace PCPlumbing.Controllers
                             {
                                 if(i == 0)
                                 {
-                                    images.Image = saveImage(path.ToString());
-                                    images.ImageBefore = saveImage(path.ToString());
+                                    images.Image = fileName;
+                                    images.ImageBefore = fileName;
                                 }
                                 else
                                 {
-                                    images.ImageBefore = saveImage(path.ToString());
+                                    images.ImageBefore = fileName;
                                 }
                                 
                             }
