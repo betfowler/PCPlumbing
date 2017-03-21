@@ -165,10 +165,9 @@ footer {
     .view{
         max-width: 750px;
     }
-    
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .contactDets {
         display: none;
     }
@@ -188,7 +187,10 @@ footer {
 @media (min-width: 992px){
     .view {
         max-width: 970px;
-    }    
+    }        
+    #slideImage{
+    padding-left: 0px;
+}
 }
 
 /*lrg*/

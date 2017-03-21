@@ -20,42 +20,97 @@
     }
 }
 
-@using (Html.BeginForm("Create", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+@Html.ActionLink("Log Out", "Logout", "Admins", new { @class="btn btn-primary", id="logoutBtn"})
 
-    <div class="form-horizontal">
-        <div class="row">
-            <div class="col-md-10">
-                <h3>Add A New Image From Your Files</h3>
-                <a href="../Images/Details" class="btn btn-primary">Select Images to Remove</a>
-            </div>
-            <div class="col-md-2">
-                <p>@Html.ActionLink("Log Out", "Logout", "Admins")</p>
-            </div>
-        </div>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="pic" id="Image" accept="image/*" />
-            </div>
-        </div>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-toggle="tab" href="#oneImage" aria-controls="home" role="tab">Upload Image</a></li>
+    <li role="presentation"><a data-toggle="tab" href="#beforeAfterImage" aria-controls="profile" role="tab">Upload Before and After Images</a></li>
+    <li><a href="../Images/Details">Select Images to Remove</a></li>
+</ul>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ImageName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="tab-content">
+    <div role="tabpanel" id="oneImage" class="tab-pane active">
+        <h3>Add A New Image From Your Files</h3>
+        @using (Html.BeginForm("Create", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="Image" style="float: right"><b>Photo</b></label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="file" name="pic" id="Image" accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ImageName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ImageDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ImageDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+                <hr />
             </div>
-        </div>
-        <hr />
+        }
     </div>
-}
+
+
+    <div role="tabpanel" id="beforeAfterImage" class="tab-pane">
+        <h3>Add New Before and After Images</h3>
+        @using (Html.BeginForm("Create", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="pic" id="Image" accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageBefore, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="pic" id="Image" accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ImageName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+                <hr />
+            </div>
+        }
+    </div>
+</div>

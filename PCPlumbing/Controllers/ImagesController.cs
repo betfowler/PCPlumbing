@@ -33,44 +33,68 @@ namespace PCPlumbing.Controllers
             return RedirectToAction("AccessDenied", "Admins");
         }
 
+        string saveImage(string pathToString)
+        {
+            string imageLocation = "\\Content\\Images\\Gallery";
+            int pathIndex = pathToString.IndexOf(imageLocation);
+            string imagePathToSave = pathToString.Substring(pathIndex);
+
+            if (db.Images.Where(im => im.Image.Equals(imagePathToSave)).FirstOrDefault() != null)
+            {
+                return ("error");
+            }
+            return (imagePathToSave);
+        }
+
         // POST: Images/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Image,ImageName,ImageDescription")] Images images)
+        public ActionResult Create([Bind(Include = "ID,Image,ImageBefore,ImageName,ImageDescription")] Images images)
         {
             if (ModelState.IsValid)
             {
                 if (Request.Files.Count > 0)
                 {
-                    var file = Request.Files[0];
-                    if (file != null && file.ContentLength > 0)
+                    //var file = Request.Files[0];
+                    for(var i=0; i<Request.Files.Count; i++)
                     {
-                        var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("../Content/Images/Gallery"), fileName);
-
-                        //if file doesn't already exist
-                        string pathToString = path.ToString();
-                        string imageLocation = "\\Content\\Images\\Gallery";
-                        int pathIndex = pathToString.IndexOf(imageLocation);
-                        string imagePathToSave = pathToString.Substring(pathIndex);
-
-                        if (db.Images.Where(im => im.Image.Equals(imagePathToSave)).FirstOrDefault() != null)
+                        var file = Request.Files[i];
+                        if (file != null && file.ContentLength > 0)
                         {
-                            ViewBag.Error = "An image with this name already exists.";
-                            return View("Create");
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(Server.MapPath("../Content/Images/Gallery"), fileName);
+
+                            if (saveImage(path.ToString()) == "error")
+                            {
+                                ViewBag.Error = "An image with this name already exists.";
+                                return View("Create");
+                            }
+                            else
+                            {
+                                if(i == 0)
+                                {
+                                    images.Image = saveImage(path.ToString());
+                                    images.ImageBefore = saveImage(path.ToString());
+                                }
+                                else
+                                {
+                                    images.ImageBefore = saveImage(path.ToString());
+                                }
+                                
+                            }
+
+                            file.SaveAs(path);
                         }
-
-                        images.Image = imagePathToSave;
-
-                        file.SaveAs(path);
-                        db.Images.Add(images);
-                        db.SaveChanges();
-                        ModelState.Clear();
-                        ViewBag.Success = "Image successfully added";
-                        return View("Create");
                     }
+
+                    db.Images.Add(images);
+                    db.SaveChanges();
+                    ModelState.Clear();
+                    ViewBag.Success = "Image successfully added";
+                    return View("Create");
+
                 }
             }
             return View(images);

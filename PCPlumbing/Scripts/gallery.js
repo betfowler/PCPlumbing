@@ -1,15 +1,19 @@
 ﻿//rollover to show before image
 function showBefore(beforeImgSource, imgID) {
+    console.log(beforeImgSource);
     var length = beforeImgSource.length;
     var removelength = "contentimagesgallery".length;
     beforeImgSource = beforeImgSource.substring(removelength, length)
+    console.log(beforeImgSource);
     $("#" + imgID).attr("src", "../Content/Images/Gallery/" + beforeImgSource);
 }
 
 function showAfter(imgSource, imgID) {
+    console.log(imgSource);
     var length = imgSource.length;
     var removelength = "contentimagesgallery".length;
     imgSource = imgSource.substring(removelength, length)
+    console.log(imgSource);
     $("#" + imgID).attr("src", "../Content/Images/Gallery/" + imgSource);
 }
 
@@ -31,22 +35,33 @@ function openModal(imgSource, imgBeforeSource, index, noSlides, title) {
         $("#beforeAfterSlides").css("display", "block");
         $("#beforeImg").attr("src", "../Content/Images/Gallery/" + imgBeforeSource);
         $("#afterImg").attr("src", "../Content/Images/Gallery/" + imgSource);
-        var halfWidth = winWidth /2; 
-        $("#beforeAfterSlides img").css("width", halfWidth);
-        $("#beforeAfterSlides img").css("max-height", winHeight);
-        var imgWidth = winWidth;
+
+
+        if (winWidth > 800) {
+            var halfWidth = winWidth / 2;
+            $("#beforeAfterSlides img").css("width", halfWidth);
+            var height = $("#beforeAfterSlides img").height();
+            $("#beforeAfterSlides img").css("max-height", height);
+            $(".modal-content").css({ "height": height, "width": winWidth });
+        }
+        else {
+            var halfHeight = winHeight / 2;
+            $("#beforeAfterSlides img").css("height", halfHeight);
+            var width = $("#beforeAfterSlides img").width();
+            $("#beforeAfterSlide img").css("max-width", width);
+            $(".modal-content").css({ "height": winHeight, "width": width });
+        }
     }
     else {
         $("#mySlides img").css("height", winHeight);
         $("#mySlides").css("display", "block");
         $("#largeImg").attr("src", "../Content/Images/Gallery/" + imgSource);
         var imgWidth = $("#mySlides img").width();
+        $(".modal-content").css({ "height": winHeight, "width": imgWidth });
     }
 
     //get image title
     //get image width
-    
-    $(".modal-content").css({ "height": winHeight, "width": imgWidth });
     slideIndex = index;
     numSlides = noSlides;
 }
