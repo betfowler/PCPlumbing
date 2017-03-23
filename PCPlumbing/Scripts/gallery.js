@@ -74,10 +74,10 @@ function showSlides(n) {
     var nextDetails = $("#" + slideIndex).attr("onclick");
     nextDetails = nextDetails.substr(10).replace(/\'/g, '');
     nextDetails = nextDetails.replace(/\)/g, '');
-    nextDetails = nextDetails.replace(/\ /g, '');
     var values = nextDetails.split(',');
+    values[1] = values[1].replace(/\ /g, '');
     
-    openModal(values[0], values[1], values[2], values[3], values[4], values[5]);
+    openModal(values[0], values[1], parseInt(values[2]), parseInt(values[3]), values[4], values[5]);
 
 }
 

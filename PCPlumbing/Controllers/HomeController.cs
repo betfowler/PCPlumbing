@@ -24,11 +24,18 @@ namespace PCPlumbing.Controllers
             return View();
         }
 
-        [CaptchaValidator]
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [CaptchaValidator( PrivateKey = "6LfXoRgUAAAAAHOdTpQ8wzU-rx4txPZb4sds9mNf", ErrorMessage = "Invalid input captcha.", RequiredMessage = "The captcha field is required.")]
         public async Task<ActionResult> Contact(string name, string email, string contact, string message, bool captchaValid)
         {
             if (name != null)
             {
+                ViewBag.Captcah = captchaValid;
 
                 if (ModelState.IsValid)
                 {

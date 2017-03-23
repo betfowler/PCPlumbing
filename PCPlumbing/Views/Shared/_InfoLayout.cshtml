@@ -12,6 +12,15 @@
             <strong>Success!</strong> @ViewBag.Success
         </div>
     }
+
+    if (ViewBag.Captcah != null)
+    {
+        <div class="alert alert-warning alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> This is what Captcha is saying: @ViewBag.Captcah
+        </div>
+    }
+
 }
 
 
