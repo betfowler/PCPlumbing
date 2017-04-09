@@ -149,12 +149,8 @@ footer {
     width: 90%;
 }
 
-.contactform {
-    width: 300px;
-    height: auto;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
+.g-recaptcha{
+    padding-left: 15px;
 }
 #contactSml{
     display: none;

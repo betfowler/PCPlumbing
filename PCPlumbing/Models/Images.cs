@@ -28,7 +28,7 @@ namespace PCPlumbing.Models
     {
         public ImageValidator()
         {
-            RuleFor(im => im.ImageName).NotNull().Must(title => title.Length < 20).WithMessage("Image name too long");
+            RuleFor(im => im.ImageName).NotNull().Must(title => title.Length < 20).WithMessage("Image name is required and must be less than 20 characters long.");
         }
 
     }

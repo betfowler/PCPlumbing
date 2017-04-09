@@ -7,6 +7,8 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Net;
 using reCAPTCHA.MVC;
+using Newtonsoft.Json;
+using PCPlumbing.Models;
 
 namespace PCPlumbing.Controllers
 {
@@ -24,36 +26,44 @@ namespace PCPlumbing.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+
+        public ActionResult Contact(string success)
         {
+            if(success != null)
+            {
+                ViewBag.Success = success;
+            }
             return View();
         }
 
         [HttpPost]
-        [CaptchaValidator( PrivateKey = "6LfXoRgUAAAAAHOdTpQ8wzU-rx4txPZb4sds9mNf", ErrorMessage = "Invalid input captcha.", RequiredMessage = "The captcha field is required.")]
-        public async Task<ActionResult> Contact(string name, string email, string contact, string message, bool captchaValid)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Contact([Bind(Include = "customerName,emailAddress,contactNumber,message")] Contact contact)
         {
-            if (name != null)
-            {
-                ViewBag.Captcah = captchaValid;
-
                 if (ModelState.IsValid)
                 {
-                    //send email
-                    var body = "<p>Name: {0}</p><p>Email address: {1}</p><p>Contact number: {2}</p><p>Message: {3}</p>";
-                    string messageBody = string.Format(body, name, email, contact, message);
-                    string to = "bethany.fowler14@gmail.com";
-                    string from = "pcplumbingsomerset@gmail.com";
-                    string subject = "PC Plumbing Online Enquiry";
+                    string EncodedResponse = Request.Form["g-Recaptcha-Response"];
+                    bool IsCaptchaValid = (ReCaptcha.Validate(EncodedResponse) == "True" ? true : false);
+                    if (IsCaptchaValid)
+                    {
+                        //send email
+                        var body = "<p>Name: {0}</p><p>Email address: {1}</p><p>Contact number: {2}</p><p>Message: {3}</p>";
+                        string messageBody = string.Format(body, contact.customerName.ToString(), contact.emailAddress.ToString(), contact.contactNumber.ToString(), contact.message.ToString());
+                        string to = "bethany.fowler14@gmail.com";
+                        string from = "pcplumbingsomerset@gmail.com";
+                        string subject = "PC Plumbing Online Enquiry";
 
-                    await SendMessage(to, from, messageBody, subject);
+                        await SendMessage(to, from, messageBody, subject);
 
-                    ViewBag.Success = "Your message has been sent to PC Plumbing";
+                        return RedirectToAction("Contact", new { success = "Your message has been sent to PC Plumbing"});
+                    }
+                    else
+                    {
+                        TempData["recaptcha"] = "Please verify that you are not a robot";
+                    }                    
                 }
-                return View();
 
-            }
-            return View();
+            return View(contact);
         }
 
         public async Task<ActionResult> SendMessage(string to, string from, string body, string subject)
@@ -71,7 +81,7 @@ namespace PCPlumbing.Controllers
                 var credential = new NetworkCredential
                 {
                     UserName = "pcplumbingsomerset@gmail.com",
-                    Password = "gnibmulp1"
+                    Password = "gnibmulP1"
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";
